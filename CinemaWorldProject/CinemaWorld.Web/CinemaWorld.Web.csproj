@@ -240,6 +240,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaWorld.Data\CinemaWorld.Data.csproj">
+      <Project>{8f4c33ef-a6ff-4b37-b754-a06832a296d6}</Project>
+      <Name>CinemaWorld.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CinemaWorld.Models\CinemaWorld.Models.csproj">
+      <Project>{209cea37-26ae-4223-83ee-82bc04923b7e}</Project>
+      <Name>CinemaWorld.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

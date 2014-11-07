@@ -1,0 +1,5 @@
+1.Add models
+2.After adding models, finish Repository pattern and Unit Of work
+3.Use ninject dependency container
+4.In ApplicationDbContext add all IDbSets
+5.Seed database

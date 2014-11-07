@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CinemaWorld.Web.Models;
+using CinemaWorld.Models;
 
 namespace CinemaWorld.Web.Controllers
 {

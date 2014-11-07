@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CinemaWorld.Web.Models;
+using CinemaWorld.Data;
+using CinemaWorld.Models;
 
 namespace CinemaWorld.Web
 {
