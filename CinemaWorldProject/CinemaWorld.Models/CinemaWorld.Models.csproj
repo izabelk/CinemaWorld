@@ -52,8 +52,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="Cinema.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Genre.cs" />
+    <Compile Include="Hall.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="Projection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Seat.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="Vote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
