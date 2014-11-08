@@ -15,7 +15,7 @@
         public int Id { get; set; }
 
         [Required]
-        [MinLength(15)]
+        [MinLength(5)]
         [MaxLength(50)]
         public string Name { get; set; }
 

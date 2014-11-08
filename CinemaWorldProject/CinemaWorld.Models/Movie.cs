@@ -9,6 +9,7 @@
         private ICollection<Comment> comments;
         private ICollection<Vote> votes;
         private ICollection<string> actors;
+        private ICollection<Genre> genres;
 
         public Movie()
         {
@@ -16,6 +17,7 @@
             this.comments = new HashSet<Comment>();
             this.votes = new HashSet<Vote>();
             this.actors = new HashSet<string>();
+            this.genres = new HashSet<Genre>();
         }
 
         public int Id { get; set; }
@@ -34,11 +36,6 @@
         public string Director { get; set; }
 
         public string ImageUrl { get; set; }
-
-        [Required]
-        public int GenreId { get; set; }
-
-        public virtual Genre Genre { get; set; }
 
         [Required]
         public int CountryId { get; set; }
@@ -94,6 +91,18 @@
             set
             {
                 this.actors = value;
+            }
+        }
+
+        public virtual ICollection<Genre> Genres
+        {
+            get
+            {
+                return this.genres;
+            }
+            set
+            {
+                this.genres = value;
             }
         }
     }

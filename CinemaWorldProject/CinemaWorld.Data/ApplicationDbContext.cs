@@ -15,7 +15,7 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
-        public virtual IDbSet<Category> Gategories { get; set; }
+        public virtual IDbSet<Category> Categories { get; set; }
 
         public virtual IDbSet<Cinema> Cinemas { get; set; }
 
