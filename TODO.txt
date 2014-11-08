@@ -1,2 +1,2 @@
--Use ninject dependency container
+-Configure Ninject in App_start
 -Set automaper
