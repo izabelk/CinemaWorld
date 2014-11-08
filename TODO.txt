@@ -1,3 +1,2 @@
 -Use ninject dependency container
--Install Kendo
 -Set automaper
