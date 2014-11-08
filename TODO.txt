@@ -1,4 +1,3 @@
 -Use ninject dependency container
--Seed database
 -Install Kendo
 -Set automaper
