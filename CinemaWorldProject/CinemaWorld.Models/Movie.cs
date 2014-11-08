@@ -45,6 +45,10 @@
 
         public virtual Country Country { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
+
         public virtual ICollection<Projection> Projections
         {
             get

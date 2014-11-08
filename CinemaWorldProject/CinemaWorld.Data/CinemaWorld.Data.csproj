@@ -55,9 +55,22 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoriesRepository.cs" />
+    <Compile Include="Repositories\CinemasRepository.cs" />
+    <Compile Include="Repositories\CitiesRepository.cs" />
+    <Compile Include="Repositories\CommentsRepository.cs" />
+    <Compile Include="Repositories\CountriesRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\GenresRepository.cs" />
+    <Compile Include="Repositories\HallsRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Repositories\MoviesRepository.cs" />
+    <Compile Include="Repositories\NewsRepository.cs" />
+    <Compile Include="Repositories\ProjectionsRepository.cs" />
+    <Compile Include="Repositories\SeatsRepository.cs" />
+    <Compile Include="Repositories\TicketsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="Repositories\VotesRepository.cs" />
     <Compile Include="UnitOfWork\CinemaWorldData.cs" />
     <Compile Include="UnitOfWork\ICinemaWorldData.cs" />
   </ItemGroup>

@@ -6,12 +6,12 @@
 
     public class Hall
     {
-        private ICollection<Seat> seats;
+        //private ICollection<Seat> seats;
         private ICollection<Projection> projections;
 
         public Hall()
         {
-            this.seats = new HashSet<Seat>();
+            //this.seats = new HashSet<Seat>();
             this.projections = new HashSet<Projection>();
         }
 
@@ -19,25 +19,24 @@
 
         [Required]
         [Index(IsUnique = true)]
-        [MaxLength(2)]
+        //[MaxLength(2)]
         public int Number { get; set; }
 
-        [Required]
         public int CinemaId { get; set; }
 
         public virtual Cinema Cinema { get; set; }
 
-        public virtual ICollection<Seat> Seats
-        {
-            get
-            {
-                return this.seats;
-            }
-            set
-            {
-                this.seats = value;
-            }
-        }
+        //public virtual ICollection<Seat> Seats
+        //{
+        //    get
+        //    {
+        //        return this.seats;
+        //    }
+        //    set
+        //    {
+        //        this.seats = value;
+        //    }
+        //}
 
         public virtual ICollection<Projection> Projections
         {

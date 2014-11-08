@@ -5,11 +5,11 @@
 
     public class Cinema
     {
-        private ICollection<Projection> projections;
+        private ICollection<Hall> halls;
 
         public Cinema()
         {
-            this.projections = new HashSet<Projection>();
+            this.halls = new HashSet<Hall>();
         }
 
         public int Id { get; set; }
@@ -24,15 +24,15 @@
 
         public virtual City City { get; set; }
 
-        public virtual ICollection<Projection> Projections
+        public virtual ICollection<Hall> Halls
         {
             get
             {
-                return this.projections;
+                return this.halls;
             }
             set
             {
-                this.projections = value;
+                this.halls = value;
             }
         }
     }

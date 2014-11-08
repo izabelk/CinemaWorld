@@ -6,10 +6,12 @@
     public class Country
     {
         private ICollection<City> cities;
+        private ICollection<Movie> movies;
 
         public Country()
         {
             this.cities = new HashSet<City>();
+            this.movies = new HashSet<Movie>();
         }
 
         public int Id { get; set; }
@@ -28,6 +30,18 @@
             set
             {
                 this.cities = value;
+            }
+        }
+
+        public virtual ICollection<Movie> Movies
+        {
+            get
+            {
+                return this.movies;
+            }
+            set
+            {
+                this.movies = value;
             }
         }
     }
