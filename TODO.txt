@@ -1,6 +1,4 @@
--Add models
--After adding models, finish Repository pattern and Unit Of work
 -Use ninject dependency container
--In ApplicationDbContext add all IDbSets
 -Seed database
 -Install Kendo
+-Set automaper
