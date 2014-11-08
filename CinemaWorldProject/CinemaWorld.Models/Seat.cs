@@ -9,13 +9,7 @@
 
         [Required]
         [Index(IsUnique = true)]
-        //[MaxLength(2)]
         public int Number { get; set; }
-
-        //[Required]
-        //public int HallId { get; set; }
-
-        //public virtual Hall Hall { get; set; }
 
         public int ProjectionId { get; set; }
 

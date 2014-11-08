@@ -6,12 +6,10 @@
 
     public class Hall
     {
-        //private ICollection<Seat> seats;
         private ICollection<Projection> projections;
 
         public Hall()
         {
-            //this.seats = new HashSet<Seat>();
             this.projections = new HashSet<Projection>();
         }
 
@@ -25,18 +23,6 @@
         public int CinemaId { get; set; }
 
         public virtual Cinema Cinema { get; set; }
-
-        //public virtual ICollection<Seat> Seats
-        //{
-        //    get
-        //    {
-        //        return this.seats;
-        //    }
-        //    set
-        //    {
-        //        this.seats = value;
-        //    }
-        //}
 
         public virtual ICollection<Projection> Projections
         {
