@@ -11,7 +11,7 @@
     .Name("news")
     .TagName("div")
     .ClientTemplateId("news-template")
-    .Pageable()
+                    .Pageable(p => { p.Numeric(true); p.PreviousNext(false); })
     .DataSource(data =>
     {
         data.Read("GetNews", "News");
@@ -20,8 +20,8 @@
     }))
 
 <script id="news-template" type="text/x-kendo-template">
+    <br />
     <div class="container">
-        <br />
         <div class="row">
             <div class="col-md-6">
                 ${Content}
@@ -31,5 +31,6 @@
         <div class="row">
             <div class="col-md-6">${kendo.toString(CreatedOn, "g")}</div>
         </div>
+        <hr class="col-md-6"/>
     </div>
 </script>

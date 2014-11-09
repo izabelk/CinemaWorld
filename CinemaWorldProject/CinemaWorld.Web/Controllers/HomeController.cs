@@ -1,8 +1,15 @@
 ﻿namespace CinemaWorld.Web.Controllers
 {
-    using CinemaWorld.Data.UnitOfWork;
+    using System;
+    using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
+    using CinemaWorld.Data.UnitOfWork;
+    using CinemaWorld.Web.ViewModels;
+   
+    [HandleError(View="Error")]
     public class HomeController : BaseController
     {
         public HomeController(ICinemaWorldData data)
@@ -12,18 +19,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            var movies = this.Data
+                .Movies
+                .All()
+                .OrderByDescending(m => m.Year)
+                .Take(6)
+                .Project().To<HomePageMovieViewModel>();
+
+            return View(movies);
         }
-
-        //public ActionResult Program()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult News()
-        //{
-        //    var news = this.Data.News.All();
-        //    return View(news);
-        //}
     }
 }
