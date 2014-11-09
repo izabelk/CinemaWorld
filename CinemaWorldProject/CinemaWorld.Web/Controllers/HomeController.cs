@@ -1,26 +1,29 @@
 ﻿namespace CinemaWorld.Web.Controllers
 {
+    using CinemaWorld.Data.UnitOfWork;
     using System.Web.Mvc;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(ICinemaWorldData data)
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Program()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult News()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var news = this.Data.News.All();
+            return View(news);
         }
     }
 }
