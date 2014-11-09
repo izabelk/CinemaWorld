@@ -1,18 +1,17 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using CinemaWorld.Web.Models;
-using CinemaWorld.Models;
-
-namespace CinemaWorld.Web.Controllers
+﻿namespace CinemaWorld.Web.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
+    using CinemaWorld.Web.Models;
+    using CinemaWorld.Models;
+
     [Authorize]
     public class AccountController : Controller
     {
