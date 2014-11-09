@@ -9,7 +9,6 @@
     using CinemaWorld.Data.UnitOfWork;
     using CinemaWorld.Web.ViewModels;
    
-    [HandleError(View="Error")]
     public class HomeController : BaseController
     {
         public HomeController(ICinemaWorldData data)

@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PremieresController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
@@ -327,6 +328,8 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Premieres\Index.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
