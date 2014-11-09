@@ -1,12 +1,17 @@
-﻿using CinemaWorld.Data.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CinemaWorld.Web.Controllers
+﻿namespace CinemaWorld.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+
+    using CinemaWorld.Data.UnitOfWork;
+    using CinemaWorld.Web.ViewModels;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+    
+
+    [HandleError]
     public class NewsController : BaseController
     {
         public NewsController(ICinemaWorldData data)
@@ -14,10 +19,25 @@ namespace CinemaWorld.Web.Controllers
         {
         }
 
-        // GET: News
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+
+        public JsonResult GetNews([DataSourceRequest] DataSourceRequest request)
+        {
+            return Json(this.GetAllNews().ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
+        }
+
+        private IQueryable<NewsViewModel> GetAllNews()
+        {
+            var news = this.Data
+                 .News
+                 .All()
+                 .Project().To<NewsViewModel>();
+
+            return news;
         }
     }
 }
