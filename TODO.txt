@@ -1,2 +1,5 @@
--Configure Ninject in App_start
--Set automaper
+-Implement features of the project
+-Add administration area
+-Config rotes
+-Handle errors (custom error page)
+
