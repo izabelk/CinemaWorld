@@ -8,7 +8,6 @@
         public int Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public int Number { get; set; }
 
         public int ProjectionId { get; set; }

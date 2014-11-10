@@ -16,8 +16,6 @@
         public int Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
-        //[MaxLength(2)]
         public int Number { get; set; }
 
         public int CinemaId { get; set; }
