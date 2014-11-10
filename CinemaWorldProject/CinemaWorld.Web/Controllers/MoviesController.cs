@@ -1,14 +1,14 @@
-﻿using CinemaWorld.Data.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using CinemaWorld.Web.ViewModels.Movie;
-
-namespace CinemaWorld.Web.Controllers
+﻿namespace CinemaWorld.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+
+    using CinemaWorld.Data.UnitOfWork;
+    using CinemaWorld.Web.ViewModels.Movie;
+
+
     public class MoviesController : BaseController
     {
         public MoviesController(ICinemaWorldData data)

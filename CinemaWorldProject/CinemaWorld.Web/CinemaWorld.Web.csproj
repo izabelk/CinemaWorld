@@ -189,7 +189,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PremieresController.cs" />
-    <Compile Include="Controllers\ProgramController.cs" />
+    <Compile Include="Controllers\ProjectionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +203,7 @@
     <Compile Include="ViewModels\Movie\DetailsMovieViewModel.cs" />
     <Compile Include="ViewModels\Movie\HomePageMovieViewModel.cs" />
     <Compile Include="ViewModels\News\NewsViewModel.cs" />
+    <Compile Include="ViewModels\Projection\ProjectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.cerulean.css" />
@@ -330,7 +331,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Premieres\Index.cshtml" />
-    <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Projections\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
