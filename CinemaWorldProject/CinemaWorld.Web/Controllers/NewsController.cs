@@ -6,7 +6,7 @@
     using AutoMapper.QueryableExtensions;
 
     using CinemaWorld.Data.UnitOfWork;
-    using CinemaWorld.Web.ViewModels;
+    using CinemaWorld.Web.ViewModels.News;
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
     

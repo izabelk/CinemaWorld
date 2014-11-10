@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Web.ViewModels
+﻿namespace CinemaWorld.Web.ViewModels.Movie
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;

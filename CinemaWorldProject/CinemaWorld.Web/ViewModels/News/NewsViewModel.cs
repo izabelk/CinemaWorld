@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Web.ViewModels
+﻿namespace CinemaWorld.Web.ViewModels.News
 {
     using System;
     using System.ComponentModel.DataAnnotations;

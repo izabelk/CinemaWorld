@@ -7,8 +7,7 @@
     using AutoMapper.QueryableExtensions;
 
     using CinemaWorld.Data.UnitOfWork;
-    using CinemaWorld.Web.ViewModels;
-    
+    using CinemaWorld.Web.ViewModels.Movie;
    
     public class HomeController : BaseController
     {

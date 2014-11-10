@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CinemaWorld.Web.ViewModels.NewsViewModel>
+﻿@model IEnumerable<CinemaWorld.Web.ViewModels.News.NewsViewModel>
 @{
     ViewBag.Title = "News";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 @(Html.Kendo()
-    .ListView<CinemaWorld.Web.ViewModels.NewsViewModel>()
+    .ListView<CinemaWorld.Web.ViewModels.News.NewsViewModel>()
     .Name("news")
     .TagName("div")
     .ClientTemplateId("news-template")

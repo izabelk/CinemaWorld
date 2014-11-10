@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
-using CinemaWorld.Web.ViewModels;
+using CinemaWorld.Web.ViewModels.Movie;
 
 namespace CinemaWorld.Web.Controllers
 {
