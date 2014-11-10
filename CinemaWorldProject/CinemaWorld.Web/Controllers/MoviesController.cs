@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
+using CinemaWorld.Web.ViewModels;
 
 namespace CinemaWorld.Web.Controllers
 {
@@ -19,9 +21,22 @@ namespace CinemaWorld.Web.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
-            return View();
+            var movie = this.Data
+                .Movies
+                .All()
+                .Where(m => m.Id == id)
+                .Project().To<DetailsMovieViewModel>()
+                .FirstOrDefault();
+
+            if (movie == null)
+            {
+                return HttpNotFound("Movie not found");
+            }
+
+            return View(movie);
         }
     }
 }

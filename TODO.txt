@@ -1,5 +1,9 @@
 -Implement features of the project
 -Add administration area
--Config rotes
--Handle errors (custom error page)
+-Add editor and display templates, for example, movies/details, Duration to be 122 minutes
+-Cache some part of home page or news
+-Add partial views,
+-Finish Public area with Program and Premieres
+-Make Search with Ajax
+
 
