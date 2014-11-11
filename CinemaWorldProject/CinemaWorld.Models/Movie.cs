@@ -37,6 +37,8 @@
 
         public string ImageUrl { get; set; }
 
+        public bool? isPremiere { get; set; }
+
         [Required]
         public int CountryId { get; set; }
 

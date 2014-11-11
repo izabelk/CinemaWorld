@@ -10,36 +10,27 @@ else
             <tr>
                 <th>Title</th>
                 <th>Duration</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>City</th>
+                <th>Cinema</th>
+                <th>Projection</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                var count = 0;
-
-                <tr>
-                    <td>@item.Key</td>
-                    <td>@item.Value.ElementAt(0).Minutes</td>
-                    @for (int i = 0; i < 5; i++)
-                    {
-                        if (count < item.Value.Count())
-                        {
-                            item.Value.OrderBy(p => p.ShownOn);
-                            <td>@string.Format("{0:HH:mm:ss tt}", item.Value.ElementAt(i).ShownOn)</td>
-                            count++;
-                        }
-                        else
-                        {
-                            <td></td>
-                        }
-                    }
-                </tr>
+                
+                for (int i = 0; i < item.Value.Count(); i++)
+                {
+                    <tr>
+                        <td>@item.Value.ElementAt(i).Movie</td>
+                        <td>@item.Value.ElementAt(i).Minutes</td>
+                        <td>@item.Value.ElementAt(i).City</td>
+                        <td>@item.Value.ElementAt(i).Cinema</td>
+                        <td>@string.Format("{0:HH:mm:ss tt}", item.Value.ElementAt(i).ShownOn)</td>
+                    </tr>
+                }
             }
         </tbody>
+
     </table>
 }
