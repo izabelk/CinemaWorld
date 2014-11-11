@@ -202,6 +202,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Movie\DetailsMovieViewModel.cs" />
     <Compile Include="ViewModels\Movie\HomePageMovieViewModel.cs" />
+    <Compile Include="ViewModels\Movie\PremieresMovieViewModel.cs" />
     <Compile Include="ViewModels\News\NewsViewModel.cs" />
     <Compile Include="ViewModels\Projection\ProjectionViewModel.cs" />
   </ItemGroup>

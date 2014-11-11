@@ -1,12 +1,13 @@
-﻿using CinemaWorld.Data.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CinemaWorld.Web.Controllers
+﻿namespace CinemaWorld.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+
+    using CinemaWorld.Data.UnitOfWork;
+    using CinemaWorld.Web.ViewModels.Movie;
+
     public class PremieresController : BaseController
     {
         public PremieresController(ICinemaWorldData data)
@@ -14,10 +15,30 @@ namespace CinemaWorld.Web.Controllers
         {
         }
 
-        // GET: Premieres
         public ActionResult Index()
         {
-            return View();
+            var premieres = this.Data.Movies
+                .All()
+                .Where(m => m.IsPremiere == true)
+                .Project().To<PremieresMovieViewModel>();
+
+            return View(premieres);
+        }
+
+        public ActionResult GetFullMovieDescription(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound("There is no such film");
+            }
+
+            var description = this.Data
+                .Movies
+                .All()
+                .Where(m => m.Id == id)
+                .FirstOrDefault().Description;
+
+            return Content(description);
         }
     }
 }
