@@ -1,6 +1,60 @@
-﻿@{
+﻿@model Dictionary<string, IGrouping<string, CinemaWorld.Web.ViewModels.Program.ProjectionViewModel>>
+@{
     ViewBag.Title = "Program";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>
+    @ViewBag.Title
+</h2>
+
+@using (Ajax.BeginForm("Search", null,
+    new AjaxOptions
+    {
+        UpdateTargetId = "results",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+    }, new { id = "searchForm" }))
+{
+
+    @(Html.Kendo()
+    .Calendar()
+    .Name("date")
+    .Min(DateTime.Now)
+    .HtmlAttributes(new { name = "date" })
+    .Events(ev =>
+    {
+        ev.Change("selectDate");
+    }))
+}
+
+@section scripts{
+
+    <script>
+        $(function () {
+            var calendar = $("#date").data("date");
+        });
+    </script>
+
+    <script>
+        function selectDate() {
+
+            $.ajax({
+                type: "POST",
+                url: "/Projections/Search",
+                contentType: "application/json",
+                data: JSON.stringify({ date: this.value() }),
+                error: function (e) {
+                    console.log(e);
+                }
+            }).done(function (result) {
+                $("#results").html(result);
+            });
+        }
+    </script>
+}
+<br />
+<br />
+<div id="results" class="container">
+    @Html.Partial("_ProgramResult", Model)
+</div>
