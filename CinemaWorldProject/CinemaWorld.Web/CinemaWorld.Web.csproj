@@ -335,6 +335,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Shared\_ProgramResult.cshtml" />
+    <Content Include="Views\Movies\DisplayTemplates\DetailsMovieViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
