@@ -26,30 +26,17 @@
     {
         ev.Change("selectDate");
     }))
+    
+    @Html.Hidden("date", string.Empty, new { id = "hidden-date"})
 }
 
 @section scripts{
 
     <script>
-        $(function () {
-            var calendar = $("#date").data("date");
-        });
-    </script>
-
-    <script>
         function selectDate() {
-
-            $.ajax({
-                type: "POST",
-                url: "/Projections/Search",
-                contentType: "application/json",
-                data: JSON.stringify({ date: this.value() }),
-                error: function (e) {
-                    console.log(e);
-                }
-            }).done(function (result) {
-                $("#results").html(result);
-            });
+            var chosenDate = kendo.toString(this.value(), 'd');
+            $("#hidden-date").val(chosenDate);
+            $("#searchForm").submit();
         }
     </script>
 }

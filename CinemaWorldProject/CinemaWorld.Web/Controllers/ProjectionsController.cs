@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -9,7 +10,7 @@
 
     using CinemaWorld.Data.UnitOfWork;
     using CinemaWorld.Web.ViewModels.Program;
-
+   
     public class ProjectionsController : BaseController
     {
         public ProjectionsController(ICinemaWorldData data)
@@ -33,9 +34,11 @@
             return View(projections);
         }
 
-        public ActionResult Search(DateTime? date)
+        public ActionResult Search(string date)
         {
-            var dateValue = date.Value;
+            var provider = CultureInfo.InvariantCulture;
+            string format = "d";
+            var dateValue = DateTime.ParseExact(date, format, provider);
 
             var projections = this
                .Data
