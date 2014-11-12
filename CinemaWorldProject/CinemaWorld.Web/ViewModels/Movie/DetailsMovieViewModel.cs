@@ -29,12 +29,18 @@
 
         public ICollection<CommentViewModel> Comments { get; set; }
 
+        public int Votes { get; set; }
+
+        public bool UserCanVote { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Movie, DetailsMovieViewModel>()
                .ForMember(m => m.Country, opt => opt.MapFrom(u => u.Country.Name));
             configuration.CreateMap<Movie, DetailsMovieViewModel>()
                 .ForMember(m => m.Category, opt => opt.MapFrom(u => u.Category.Name));
+            configuration.CreateMap<Movie, DetailsMovieViewModel>()
+                .ForMember(m => m.Votes, opt => opt.MapFrom(u => u.Votes.Count));
         }
     }
 }

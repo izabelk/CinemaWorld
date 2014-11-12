@@ -40,6 +40,14 @@
             {
                 return HttpNotFound("Movie not found");
             }
+            else
+            {
+                movie.UserCanVote = !this.Data
+                    .Movies
+                    .All()
+                    .FirstOrDefault(m => m.Id==id)
+                    .Votes.Any(v => v.UserId == User.Identity.GetUserId());
+            }
 
             return View(movie);
         }
@@ -66,6 +74,40 @@
 
             var viewModel = new CommentViewModel { AuthorUsername = username, Content = comment.Content };
             return PartialView("_CommentPartial", viewModel);
+        }
+
+        public ActionResult Vote(int id)
+        {
+            var userId = User.Identity.GetUserId();
+
+            var canVote = !this.Data.Votes.All().Any(v => v.MovieId == id && v.UserId == userId);
+
+            if (canVote)
+            {
+                var movie = this.Data
+                    .Movies
+                    .All()
+                    .FirstOrDefault(m => m.Id == id);
+
+                if (movie != null)
+                {
+                    movie.Votes.Add(new Vote
+                    {
+                        MovieId = id,
+                        UserId = userId
+                    });
+
+                    this.Data.SaveChanges();
+                }
+                else
+                {
+                    return HttpNotFound("Movie with such id does not exist");
+                }
+            }
+
+            var votes = this.Data.Movies.All().FirstOrDefault(m => m.Id == id).Votes.Count;
+
+            return Content(votes.ToString());
         }
     }
 }

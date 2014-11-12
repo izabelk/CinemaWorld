@@ -34,17 +34,30 @@
             <br />
             @Html.LabelFor(m => m.Description) : @Html.DisplayFor(m => m.Description)
             <br />
-            @if (Model.Comments.Count > 0)
-            {
-                  @Html.LabelFor(m => m.Comments) @:  :
-                    <div id="comments">
-                     @foreach (var comment in Model.Comments)
+            <div>
+                @Html.LabelFor(m => m.Votes): <span id="laptop-votes">@Model.Votes</span>
+                @if (User.Identity.IsAuthenticated && Model.UserCanVote)
+                {
+                    @Ajax.ActionLink("Vote", "Vote", new { id = Model.Id },
+                    new AjaxOptions
                     {
-                         @Html.Partial("_CommentPartial", comment)
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "laptop-votes",
+                        HttpMethod = "Post",
+                        OnSuccess = "hideVoteButton"
+                    }, new { id = "vote-button", @class = "btn" })
+                }
+            </div>
+
+            @Html.LabelFor(m => m.Comments) :
+            <div id="comments">
+                @foreach (var comment in Model.Comments)
+                    {
+                    @Html.Partial("_CommentPartial", comment)
                     }
             </div>
-            }
-          
+
+
             @if (User.Identity.IsAuthenticated)
             {
                 using (Ajax.BeginForm("PostComment",
@@ -69,7 +82,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
     function commentPostFailure(err) {
