@@ -1,9 +1,10 @@
--Implement features of the project
--Add administration area
--Add editor and display templates, for example, movies/details, Duration to be 122 minutes
+-Implement CRUD in Administration
+-Add more editor and display templates
 -Cache some part of home page or news
--Add partial views,
--Finish Public area with Program and Premieres
--Make Search with Ajax
+-Add more partial views
+-Make more search
+-Fix client side validation of partial views (comments for example)
+-Implement choosing seats (if there is time)
+-Write some unit tests(if there is time)
 
 
