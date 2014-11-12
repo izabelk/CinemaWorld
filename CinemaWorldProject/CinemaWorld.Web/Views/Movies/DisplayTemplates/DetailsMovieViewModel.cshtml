@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = Model.Title;
 }
-
 <div class="container">
     <div class="row">
         <h2>@ViewBag.Title</h2>
@@ -34,6 +33,50 @@
             @Html.LabelFor(m => m.Category) : @Html.DisplayFor(m => m.Category)
             <br />
             @Html.LabelFor(m => m.Description) : @Html.DisplayFor(m => m.Description)
+            <br />
+            @if (Model.Comments.Count > 0)
+            {
+                  @Html.LabelFor(m => m.Comments) @:  :
+                    <div id="comments">
+                     @foreach (var comment in Model.Comments)
+                    {
+                         @Html.Partial("_CommentPartial", comment)
+                    }
+            </div>
+            }
+          
+            @if (User.Identity.IsAuthenticated)
+            {
+                using (Ajax.BeginForm("PostComment",
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        InsertionMode = InsertionMode.InsertAfter,
+                        UpdateTargetId = "comments",
+                        OnFailure = "commentPostFailure"
+                    }))
+                {
+                    <div class="container">
+                        @Html.ValidationSummary(true)
+                    </div>
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("MovieId", Model.Id)
+                    @Html.TextArea("Content", new { @class = "form-control" })
+                    <br />
+                    <input type="submit" value="Submit comment" class="btn btn-primary" />
+                }
+            }
         </div>
     </div>
 </div>
+
+
+<script>
+    function commentPostFailure(err) {
+        console.log(err);
+    }
+
+    function hideVoteButton() {
+        $("#vote-button").hide();
+    }
+</script>

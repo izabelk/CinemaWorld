@@ -7,6 +7,7 @@
 
     using CinemaWorld.Models;
     using CinemaWorld.Web.Infrastructure.Mapping;
+    using CinemaWorld.Web.ViewModels.Comment;
 
     public class DetailsMovieViewModel : HomePageMovieViewModel, IMapFrom<Movie>, IHaveCustomMappings
     {
@@ -25,6 +26,8 @@
         public string Category { get; set; }
 
         public ICollection<Genre> Genres { get; set; }
+
+        public ICollection<CommentViewModel> Comments { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {

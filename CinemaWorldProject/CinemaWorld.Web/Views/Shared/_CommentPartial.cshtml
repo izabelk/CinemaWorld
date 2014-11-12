@@ -1,0 +1,20 @@
+﻿@model CinemaWorld.Web.ViewModels.Comment.CommentViewModel
+<div>
+    <div style="color:red">
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+
+    @if (ViewData.ModelState.IsValid)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well well-sm">
+                        <p style="overflow-x:auto; word-wrap:break-word">@Model.Content</p>
+                        <p>by <em>@Model.AuthorUsername</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

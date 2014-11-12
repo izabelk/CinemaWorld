@@ -200,6 +200,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Comment\CommentViewModel.cs" />
+    <Compile Include="ViewModels\Comment\SubmitCommentViewModel.cs" />
     <Compile Include="ViewModels\Movie\DetailsMovieViewModel.cs" />
     <Compile Include="ViewModels\Movie\HomePageMovieViewModel.cs" />
     <Compile Include="ViewModels\Movie\PremieresMovieViewModel.cs" />
@@ -337,6 +339,7 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Shared\_ProgramResult.cshtml" />
     <Content Include="Views\Movies\DisplayTemplates\DetailsMovieViewModel.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
