@@ -185,6 +185,7 @@
     <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\GridAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\NewsController.cs" />
+    <Compile Include="Areas\ViewModels\News\NewsViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,18 +213,6 @@
     <Compile Include="ViewModels\Projection\ProjectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.ascx" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.ascx" />
     <Content Include="Content\bootstrap.cerulean.css" />
     <Content Include="Content\bootstrap.cerulean.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -297,6 +286,19 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\News\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

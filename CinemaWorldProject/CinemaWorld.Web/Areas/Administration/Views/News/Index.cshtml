@@ -1,6 +1,37 @@
-﻿@{
+﻿@using CinemaWorld.Web.Areas.ViewModels.News
+@{
     ViewBag.Title = "News administration";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "News";
 }
 
 <h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+    .Grid<NewsViewModel>()
+    .Name("news-grid")
+    .Columns(cols =>
+    {
+        cols.Bound(news => news.Id);
+        cols.Bound(news => news.Content);
+        cols.Bound(news => news.CreatedOn);
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .ServerOperation(true)
+            .Model(m => m.Id(news => news.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))
