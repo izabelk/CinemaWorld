@@ -296,6 +296,7 @@
     <Content Include="Content\Kendo\Default\Thumbs.db" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administration\Views\News\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
