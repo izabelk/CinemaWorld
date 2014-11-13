@@ -209,6 +209,18 @@
     <Compile Include="ViewModels\Projection\ProjectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.ascx" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.ascx" />
     <Content Include="Content\bootstrap.cerulean.css" />
     <Content Include="Content\bootstrap.cerulean.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -280,6 +292,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Kendo\Default\Thumbs.db" />
     <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -345,7 +358,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
