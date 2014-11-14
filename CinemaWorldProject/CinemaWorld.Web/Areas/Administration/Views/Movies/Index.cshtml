@@ -20,8 +20,8 @@
         cols.Bound(m => m.Director);
         cols.Bound(m => m.ImageUrl).ClientTemplate("<img src = '#= ImageUrl #'>");
         cols.Bound(m => m.IsPremiere).ClientTemplate("<input type = 'checkbox' #= IsPremiere ? checked = 'checked' : '' # ");
-        cols.Bound(m => m.CountryId).ClientTemplate("#= Country#").Title("Country");
-        cols.Bound(m => m.CategoryId).ClientTemplate("#= Category#").Title("Category");
+        cols.Bound(m => m.CountryId).ClientTemplate("#= CountryName #").Title("Country");
+        cols.Bound(m => m.CategoryId).ClientTemplate("#= CategoryName #").Title("Category");
         cols.Command(com => com.Edit()).Title("Edit");
         cols.Command(com => com.Destroy()).Title("Delete");
     })

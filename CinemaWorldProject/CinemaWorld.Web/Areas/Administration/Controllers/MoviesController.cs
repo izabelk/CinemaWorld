@@ -50,6 +50,8 @@
                 this.Data.Movies.Add(dbModel);
                 this.Data.SaveChanges();
                 model.Id = dbModel.Id;
+                model.CountryName = dbModel.Country.Name;
+                model.CategoryName = dbModel.Category.Name;
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
@@ -64,6 +66,8 @@
                 Mapper.CreateMap<AdministrationMovieViewModel, Movie>();
                 Mapper.Map(model, movie);
                 this.Data.SaveChanges();
+                model.CategoryName = movie.Category.Name;
+                model.CountryName = movie.Country.Name;
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));

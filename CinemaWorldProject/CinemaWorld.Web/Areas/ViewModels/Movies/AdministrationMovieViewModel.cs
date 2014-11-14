@@ -32,23 +32,29 @@
         [DefaultValue(false)]
         public bool? IsPremiere { get; set; }
 
+        [DisplayName("Country")]
         [UIHint("Country")]
         public int CountryId { get; set; }
 
-        public string Country { get; set; }
+        [Editable(false)]
+        [HiddenInput(DisplayValue=false)]
+        public string CountryName { get; set; }
 
+        [DisplayName("Category")]
         [UIHint("Category")]
         public int CategoryId { get; set; }
 
-        public string Category { get; set; }
+        [Editable(false)]
+        [HiddenInput(DisplayValue = false)]
+        public string CategoryName { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Movie, AdministrationMovieViewModel>()
-               .ForMember(m => m.Country, opt => opt.MapFrom(u => u.Country.Name));
+               .ForMember(m => m.CountryName, opt => opt.MapFrom(u => u.Country.Name));
 
             configuration.CreateMap<Movie, AdministrationMovieViewModel>()
-               .ForMember(m => m.Category, opt => opt.MapFrom(u => u.Category.Name));
+               .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
         }
     }
 }
