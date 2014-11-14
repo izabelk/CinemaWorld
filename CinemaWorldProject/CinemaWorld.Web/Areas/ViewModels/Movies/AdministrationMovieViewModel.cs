@@ -51,9 +51,9 @@
         [HiddenInput(DisplayValue = false)]
         public string CategoryName { get; set; }
 
-        public ICollection<GenreViewModel> Genres { get; set; }
+        //public ICollection<GenreViewModel> Genres { get; set; }
 
-        public string GenresNames { get; set; }
+        //public string GenresNames { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
@@ -63,8 +63,8 @@
             configuration.CreateMap<Movie, AdministrationMovieViewModel>()
                .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
 
-            configuration.CreateMap<Movie, AdministrationMovieViewModel>()
-                .ForMember(m => m.GenresNames, opt => opt.UseValue(string.Empty));
+            //configuration.CreateMap<Movie, AdministrationMovieViewModel>()
+            //    .ForMember(m => m.GenresNames, opt => opt.UseValue(string.Empty));
 
         }
     }
