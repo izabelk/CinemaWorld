@@ -302,6 +302,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Areas\Administration\Views\Movies\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\News\EditorTemplates\String.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

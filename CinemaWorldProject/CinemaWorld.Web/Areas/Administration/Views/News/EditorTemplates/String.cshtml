@@ -1,0 +1,11 @@
+﻿@model object
+
+@Html.TextAreaFor(m => m,
+new
+{
+    rows = 15,
+    cols = 35,
+    wrap = "hard",
+    style = "text-overflow:ellipsis; display:block; width:90%; height:100%; font-family:Arial; font-size:12px;",
+    @class = "form-control"
+})
