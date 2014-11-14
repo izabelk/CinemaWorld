@@ -35,7 +35,13 @@
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var dbMovies = this.Data.Movies.All().Project().To<AdministrationMovieViewModel>();
+            var dbMovies = this.Data.Movies.All().Project().To<AdministrationMovieViewModel>().ToList();
+
+            foreach (var movie in dbMovies)
+            {
+                movie.GenresNames = string.Join(", ", movie.Genres);
+            }
+
             var movies = dbMovies.ToDataSourceResult(request, ModelState);
             return this.Json(movies);
         }

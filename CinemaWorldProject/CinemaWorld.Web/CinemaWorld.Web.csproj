@@ -188,6 +188,7 @@
     <Compile Include="Areas\Administration\Controllers\NewsController.cs" />
     <Compile Include="Areas\ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="Areas\ViewModels\Countries\CountryViewModel.cs" />
+    <Compile Include="Areas\ViewModels\Genres\GenreViewModel.cs" />
     <Compile Include="Areas\ViewModels\Movies\AdministrationMovieViewModel.cs" />
     <Compile Include="Areas\ViewModels\News\NewsViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -371,6 +372,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Genres\" />
+    <Folder Include="Areas\Administration\Views\Movies\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

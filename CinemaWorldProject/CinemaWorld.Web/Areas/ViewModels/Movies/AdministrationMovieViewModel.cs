@@ -1,5 +1,6 @@
 ﻿namespace CinemaWorld.Web.Areas.ViewModels.Movies
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel;
     using System.Web.Mvc;
@@ -8,6 +9,8 @@
 
     using CinemaWorld.Models;
     using CinemaWorld.Web.Infrastructure.Mapping;
+    using CinemaWorld.Web.Areas.ViewModels.Genres;
+    using System.Text;
     
     public class AdministrationMovieViewModel : IMapFrom<Movie>, IHaveCustomMappings
     {
@@ -48,6 +51,10 @@
         [HiddenInput(DisplayValue = false)]
         public string CategoryName { get; set; }
 
+        public ICollection<GenreViewModel> Genres { get; set; }
+
+        public string GenresNames { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Movie, AdministrationMovieViewModel>()
@@ -55,6 +62,10 @@
 
             configuration.CreateMap<Movie, AdministrationMovieViewModel>()
                .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
+
+            configuration.CreateMap<Movie, AdministrationMovieViewModel>()
+                .ForMember(m => m.GenresNames, opt => opt.UseValue(string.Empty));
+
         }
     }
 }

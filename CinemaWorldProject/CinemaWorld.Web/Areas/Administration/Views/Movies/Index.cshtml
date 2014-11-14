@@ -19,6 +19,7 @@
         cols.Bound(m => m.Duration);
         cols.Bound(m => m.Director);
         cols.Bound(m => m.ImageUrl).ClientTemplate("<img src = '#= ImageUrl #'>");
+        cols.Bound(m => m.Genres).ClientTemplate("<span>#= GenresNames #</span>").Title("Genres");
         cols.Bound(m => m.IsPremiere).ClientTemplate("<input type = 'checkbox' #= IsPremiere ? checked = 'checked' : '' # ");
         cols.Bound(m => m.CountryId).ClientTemplate("#= CountryName #").Title("Country");
         cols.Bound(m => m.CategoryId).ClientTemplate("#= CategoryName #").Title("Category");
