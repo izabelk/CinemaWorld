@@ -30,16 +30,9 @@
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var x = this.Data.Movies.All().Project().To<AdministrationMovieViewModel>();
-            var y = x.ToDataSourceResult(request, ModelState);
-
-            //var movies = this.Data
-                //.Movies
-                //.All()
-                //.Project().To<AdministrationMovieViewModel>()
-                //.ToDataSourceResult(request, ModelState);
-
-            return this.Json(y);
+            var dbMovies = this.Data.Movies.All().Project().To<AdministrationMovieViewModel>();
+            var movies = dbMovies.ToDataSourceResult(request, ModelState);
+            return this.Json(movies);
         }
 
         [HttpPost]
