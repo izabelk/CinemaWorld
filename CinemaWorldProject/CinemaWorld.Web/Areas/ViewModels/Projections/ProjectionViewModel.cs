@@ -31,6 +31,14 @@
         [HiddenInput(DisplayValue = false)]
         public int HallNumber { get; set; }
 
+        [DisplayName("Cinema")]
+        [UIHint("Cinema")]
+        public int CinemaId { get; set; }
+
+        [Editable(false)]
+        [HiddenInput(DisplayValue = false)]
+        public string CinemaName { get; set; }
+
         [Required]
         public DateTime ShownOn { get; set; }
 
@@ -41,6 +49,12 @@
 
             configuration.CreateMap<Projection, ProjectionViewModel>()
               .ForMember(p => p.HallNumber, opt => opt.MapFrom(u => u.Hall.Number));
+
+            configuration.CreateMap<Projection, ProjectionViewModel>()
+              .ForMember(p => p.CinemaName, opt => opt.MapFrom(u => u.Hall.Cinema.Name));
+
+            configuration.CreateMap<Projection, ProjectionViewModel>()
+             .ForMember(p => p.CinemaId, opt => opt.MapFrom(u => u.Hall.CinemaId));
         }
     }
 }

@@ -15,6 +15,7 @@
         cols.Bound(p => p.Id);
        
         cols.Bound(p => p.MovieId).ClientTemplate("#= MovieName #").Title("Movie");
+        cols.Bound(p => p.HallId).ClientTemplate("#= CinemaName #").Title("Cinema");
         cols.Bound(news => news.ShownOn).ClientTemplate("#=kendo.toString(ShownOn, 'dd/MM/yyyy HH:mm:ss')#");
         cols.Bound(p => p.HallId).ClientTemplate("#= HallNumber #").Title("Hall");
         cols.Command(com => com.Edit()).Title("Edit");
@@ -41,6 +42,9 @@
                         model.Field(p => p.HallId).DefaultValue(
                             ((CinemaWorld.Web.Areas.ViewModels
                             .Halls.HallViewModel)ViewData["defaultHall"]).Id);
+                        model.Field(p => p.CinemaId).DefaultValue(
+                            ((CinemaWorld.Web.Areas.ViewModels
+                            .Cinemas.CinemaViewModel)ViewData["defaulCinema"]).Id);
                     })
             .Read(read => read.Action("Read", ControllerName))
             .Create(create => create.Action("Create", ControllerName))

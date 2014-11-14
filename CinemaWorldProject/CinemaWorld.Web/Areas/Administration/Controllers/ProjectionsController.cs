@@ -17,6 +17,7 @@
     using CinemaWorld.Models;
     using CinemaWorld.Web.Areas.ViewModels.Movies;
     using CinemaWorld.Web.Areas.ViewModels.Halls;
+    using CinemaWorld.Web.Areas.ViewModels.Cinemas;
 
     public class ProjectionsController : BaseController
     {
@@ -31,6 +32,7 @@
         {
             this.PopulateMovies();
             this.PopulateHalls();
+            this.PopulateCinemas();
 
             return View();
         }
@@ -57,11 +59,14 @@
             {
                 Mapper.CreateMap<ProjectionViewModel, Projection>();
                 var dbModel = Mapper.Map<Projection>(model);
+                var hall = this.Data.Halls.All().FirstOrDefault(h => h.Id == model.HallId);
+                hall.CinemaId = model.CinemaId;
                 this.Data.Projections.Add(dbModel);
                 this.Data.SaveChanges();
                 model.Id = dbModel.Id;
                 model.MovieName = this.Data.Movies.All().FirstOrDefault(m => m.Id == dbModel.MovieId).Title;
                 model.HallNumber = this.Data.Halls.All().FirstOrDefault(h => h.Id == dbModel.HallId).Number;
+                model.CinemaName = hall.Cinema.Name;
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
@@ -73,11 +78,13 @@
             if (model != null && ModelState.IsValid)
             {
                 var projection = this.Data.Projections.All().FirstOrDefault(p => p.Id == model.Id);
+                projection.Hall.CinemaId = model.CinemaId;
                 Mapper.CreateMap<ProjectionViewModel, Projection>();
                 Mapper.Map(model, projection);
                 this.Data.SaveChanges();
                 model.MovieName = projection.Movie.Title;
                 model.HallNumber = projection.Hall.Number;
+                model.CinemaName = projection.Hall.Cinema.Name;
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
@@ -117,6 +124,18 @@
 
             ViewData["halls"] = halls;
             ViewData["defaultHall"] = halls.FirstOrDefault();
+        }
+
+        private void PopulateCinemas()
+        {
+            var cinemas = this.Data
+                .Cinemas
+                .All()
+                .Project()
+                .To<CinemaViewModel>();
+
+            ViewData["cinemas"] = cinemas;
+            ViewData["defaulCinema"] = cinemas.FirstOrDefault();
         }
     }
 }
