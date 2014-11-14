@@ -12,7 +12,9 @@
     using CinemaWorld.Data.UnitOfWork;
     using CinemaWorld.Models;
     using CinemaWorld.Web.Areas.Administration.Controllers.Base;
+    using CinemaWorld.Web.Areas.ViewModels.Categories;
     using CinemaWorld.Web.Areas.ViewModels.Movies;
+    using CinemaWorld.Web.Areas.ViewModels.Countries;
 
     public class MoviesController : AdminController
     {
@@ -24,6 +26,9 @@
         [HttpGet]
         public ActionResult Index()
         {
+            this.PopulateCountries();
+            this.PopulateCategories();
+
             return View();
         }
 
@@ -55,9 +60,9 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var movies = this.Data.Movies.All().FirstOrDefault(m => m.Id == model.Id);
+                var movie = this.Data.Movies.All().FirstOrDefault(m => m.Id == model.Id);
                 Mapper.CreateMap<AdministrationMovieViewModel, Movie>();
-                Mapper.Map(model, movies);
+                Mapper.Map(model, movie);
                 this.Data.SaveChanges();
             }
 
@@ -76,6 +81,29 @@
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+        }
+
+        private void PopulateCountries()
+        {
+            var countries = this.Data
+                .Countries
+                .All()
+                .Project().To<CountryViewModel>();
+
+            ViewData["countries"] = countries;
+            ViewData["defaultCountry"] = countries.FirstOrDefault();
+        }
+
+        private void PopulateCategories()
+        {
+            var categories = this.Data
+                .Categories
+                .All()
+                .OrderBy(c => c.Name)
+                .Project().To<CategoryViewModel>();
+
+            ViewData["categories"] = categories;
+            ViewData["defaultCategory"] = categories.FirstOrDefault();
         }
     }
 }

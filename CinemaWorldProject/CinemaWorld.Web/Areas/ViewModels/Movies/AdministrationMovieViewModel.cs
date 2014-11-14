@@ -1,13 +1,14 @@
 ﻿namespace CinemaWorld.Web.Areas.ViewModels.Movies
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     using System.Web.Mvc;
 
     using AutoMapper;
 
     using CinemaWorld.Models;
     using CinemaWorld.Web.Infrastructure.Mapping;
-
+    
     public class AdministrationMovieViewModel : IMapFrom<Movie>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
@@ -28,9 +29,16 @@
 
         public string ImageUrl { get; set; }
 
+        [DefaultValue(false)]
         public bool? IsPremiere { get; set; }
 
+        [UIHint("Country")]
+        public int CountryId { get; set; }
+
         public string Country { get; set; }
+
+        [UIHint("Category")]
+        public int CategoryId { get; set; }
 
         public string Category { get; set; }
 

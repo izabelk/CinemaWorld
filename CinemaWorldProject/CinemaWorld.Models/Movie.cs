@@ -1,6 +1,7 @@
 ﻿namespace CinemaWorld.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public class Movie
@@ -37,6 +38,7 @@
 
         public string ImageUrl { get; set; }
 
+        [DefaultValue(false)]
         public bool? IsPremiere { get; set; }
 
         [Required]
