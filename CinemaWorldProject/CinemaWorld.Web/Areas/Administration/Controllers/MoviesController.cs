@@ -56,8 +56,8 @@
                 this.Data.Movies.Add(dbModel);
                 this.Data.SaveChanges();
                 model.Id = dbModel.Id;
-                model.CountryName = dbModel.Country.Name;
-                model.CategoryName = dbModel.Category.Name;
+                model.CountryName = this.Data.Countries.All().FirstOrDefault(c => c.Id == dbModel.CountryId).Name;
+                model.CategoryName = this.Data.Categories.All().FirstOrDefault(c => c.Id == dbModel.CategoryId).Name;
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));

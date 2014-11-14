@@ -1,0 +1,6 @@
+﻿﻿@(Html.Kendo().DropDownList()
+    .Name("MovieId")
+    .DataValueField("Id")
+    .DataTextField("Title")
+    .BindTo((System.Collections.IEnumerable)ViewData["movies"])
+)

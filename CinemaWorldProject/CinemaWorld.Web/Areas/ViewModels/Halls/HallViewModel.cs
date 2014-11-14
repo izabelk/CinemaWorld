@@ -1,16 +1,16 @@
-﻿namespace CinemaWorld.Web.Areas.ViewModels.Categories
+﻿namespace CinemaWorld.Web.Areas.ViewModels.Halls
 {
     using System.ComponentModel.DataAnnotations;
 
     using CinemaWorld.Models;
     using CinemaWorld.Web.Infrastructure.Mapping;
 
-    public class CategoryViewModel : IMapFrom<Category>
+    public class HallViewModel : IMapFrom<Hall>
     {
         public int Id { get; set; }
 
         [Required]
         [Editable(false)]
-        public string Name { get; set; }
+        public int Number { get; set; }
     }
 }

@@ -1,13 +1,10 @@
-﻿using CinemaWorld.Models;
-using CinemaWorld.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace CinemaWorld.Web.Areas.ViewModels.Countries
+﻿namespace CinemaWorld.Web.Areas.ViewModels.Countries
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using CinemaWorld.Models;
+    using CinemaWorld.Web.Infrastructure.Mapping;
+
     public class CountryViewModel: IMapFrom<Country>
     {
         public int Id { get; set; }

@@ -1,0 +1,6 @@
+﻿﻿@(Html.Kendo().DropDownList()
+    .Name("HallId")
+    .DataValueField("Id")
+    .DataTextField("Number")
+    .BindTo((System.Collections.IEnumerable)ViewData["halls"])
+)
