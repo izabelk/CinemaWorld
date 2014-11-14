@@ -14,7 +14,7 @@
     {
         cols.Bound(news => news.Id);
         cols.Bound(news => news.Content);
-        cols.Bound(news => news.CreatedOn);
+        cols.Bound(news => news.CreatedOn).ClientTemplate("#=kendo.toString(CreatedOn, 'dd/MM/yyyy HH:mm:ss')#");
         cols.Command(com => com.Edit()).Title("Edit");
         cols.Command(com => com.Destroy()).Title("Delete");
     })

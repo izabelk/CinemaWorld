@@ -1,5 +1,7 @@
 ﻿namespace CinemaWorld.Web.Areas.Administration.Controllers
 {
+    using System;
+    using System.Globalization;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -17,7 +19,13 @@
     {
         public NewsController(ICinemaWorldData data) : base(data)
         {
+            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
+
+        //protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    base.OnActionExecuting(filterContext);
+        //}
 
         [HttpGet]
         public ActionResult Index()
@@ -41,6 +49,7 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                Mapper.CreateMap<NewsViewModel, News>();
                 var dbModel = Mapper.Map<News>(model);
                 this.Data.News.Add(dbModel);
                 this.Data.SaveChanges();
@@ -56,9 +65,8 @@
             if (model != null && ModelState.IsValid)
             {
                 var news = this.Data.News.All().FirstOrDefault(n => n.Id == model.Id);
-                news.Content = model.Content;
-                news.CreatedOn = model.CreatedOn;
-                //Mapper.Map(model, news);
+                Mapper.CreateMap<NewsViewModel, News>();
+                Mapper.Map(model, news);
                 this.Data.SaveChanges();
             }
 
@@ -70,8 +78,10 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                Mapper.CreateMap<NewsViewModel, News>();
                 var dbModel = Mapper.Map<News>(model);
                 this.Data.News.Delete(dbModel);
+                this.Data.SaveChanges();
             }
 
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
