@@ -1,0 +1,44 @@
+﻿@using CinemaWorld.Web.Areas.ViewModels.Movies
+@{
+    ViewBag.Title = "Movies administration";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "Movies";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+    .Grid<AdministrationMovieViewModel>()
+    .Name("movies-grid")
+    .Columns(cols =>
+    {
+        cols.Bound(m => m.Id);
+        cols.Bound(m => m.Title);
+        cols.Bound(m => m.Description);
+        cols.Bound(m => m.Year);
+        cols.Bound(m => m.Duration);
+        cols.Bound(m => m.Director);
+        //cols.Bound(m => m.ImageUrl).ClientTemplate("<img src = '#= ImageUrl #'>");
+        //cols.Bound(m => m.IsPremiere)
+        //cols.Bound(m => m.Country);
+        //cols.Bound(m => m.Category);
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .ServerOperation(true)
+            .Model(m => m.Id(movie => movie.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))

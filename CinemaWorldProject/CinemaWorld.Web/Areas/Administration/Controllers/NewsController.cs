@@ -3,6 +3,7 @@
     using System;
     using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
 
     using Kendo.Mvc.UI;
@@ -19,13 +20,8 @@
     {
         public NewsController(ICinemaWorldData data) : base(data)
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
-
-        //protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        //{
-        //    base.OnActionExecuting(filterContext);
-        //}
 
         [HttpGet]
         public ActionResult Index()
