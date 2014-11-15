@@ -11,7 +11,7 @@
     {
         var movie = Model.ElementAt(i);
 
-        <div class="col-md-4">
+        <div class="col-md-4" id="main-content">
             <h2>
                 <a href="@Url.Action("Details", "Movies", new { movie.Id })">@movie.Title</a>
             </h2>
@@ -19,17 +19,20 @@
             <br />
             <br />
             <p id=@string.Format("movie-description-{0}", i)>
-                @(movie.Description.Length > 100 ? movie.Description.Substring(0, 100)  + "..." : movie.Description)
+                @(movie.Description.Length > 100 ? movie.Description.Substring(0, 100) + "..." : movie.Description)
             </p>
-            <div>
-                @Ajax.ActionLink("See more", "GetFullMovieDescription", new { id = movie.Id }, new AjaxOptions
-                {
-                    HttpMethod = "GET",
-                    InsertionMode = InsertionMode.Replace,
-                    UpdateTargetId = "movie-description-" + i.ToString(),
-                    OnSuccess = "hideSeeMoreBtn",
-                }, new { @class="btn", id=string.Format("seeMoreBtn-{0}", movie.Id)})
-            </div>
+            @if (movie.Description.Length > 100)
+            {
+                <div>
+                    @Ajax.ActionLink("See more", "GetFullMovieDescription", new { id = movie.Id }, new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "movie-description-" + i.ToString(),
+                        OnSuccess = "hideSeeMoreBtn",
+                    }, new { @class = "btn", id = string.Format("seeMoreBtn-{0}", movie.Id) })
+                </div>
+            }
         </div>
 
         if (i > 0 && (i + 1) % 3 == 0)
@@ -43,9 +46,11 @@
 <div class="row"></div>
 
 @section scripts{
-   <script>
-       function hideSeeMoreBtn(request, status, x) {
-           //$("#seeMoreBtn").hide();
-       }
+    <script>
+        $(document).ready(function () {
+            $("a").click(function (event) {
+            $(event.target).hide();
+            });
+        });
     </script>
 }
