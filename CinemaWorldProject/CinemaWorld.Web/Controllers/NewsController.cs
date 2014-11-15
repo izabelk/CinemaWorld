@@ -3,6 +3,8 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using Microsoft.AspNet.Identity;
+
     using AutoMapper.QueryableExtensions;
 
     using CinemaWorld.Data.UnitOfWork;
@@ -20,6 +22,7 @@
         }
 
         [HttpGet]
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {
             return this.View();
