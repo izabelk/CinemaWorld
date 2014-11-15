@@ -16,7 +16,7 @@
         HttpMethod = "POST",
     }, new { id = "searchForm" }))
 {
-
+    <h5>Select date</h5>
     @(Html.Kendo()
     .Calendar()
     .Name("date")
@@ -27,7 +27,59 @@
         ev.Change("selectDate");
     }))
     
-    @Html.Hidden("date", string.Empty, new { id = "hidden-date"})
+    <br />
+    <br />
+    <h5>Select city</h5>
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("CityName")
+        .DataTextField("City")
+        .DataValueField("City")
+        .OptionLabel("All")
+        .DataSource(data =>
+        {
+            data.Read(read => read.Action("GetProjectionCityData", "Projections"));
+            data.ServerFiltering(true);
+        }))
+    
+    <br />
+    <br />
+
+    <h5>Select cinema</h5>
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("CinemaName")
+        .DataTextField("Cinema")
+        .DataValueField("Cinema")
+        .OptionLabel("All")
+        .DataSource(data =>
+        {
+            data.Read(read => read.Action("GetProjectionCinemaData", "Projections"));
+            data.ServerFiltering(true);
+        }))
+    
+    <br />
+    <br />
+    <h5>Select movie</h5>
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("MovieName")
+        .DataTextField("Movie")
+        .DataValueField("Movie")
+        .OptionLabel("All")
+        .DataSource(data =>
+        {
+            data.Read(read => read.Action("GetProjectionMovieData", "Projections"));
+            data.ServerFiltering(true);
+        }))
+    
+    <br />
+    <br />
+
+    @Html.Hidden("Date", string.Empty, new { id = "hidden-date"})
+    <br />
+    <input type="submit" class="btn btn-primary" value="Search"/>
+    
 }
 
 @section scripts{
@@ -36,12 +88,11 @@
         function selectDate() {
             var chosenDate = kendo.toString(this.value(), 'd');
             $("#hidden-date").val(chosenDate);
-            $("#searchForm").submit();
         }
     </script>
 }
 <br />
 <br />
-<div id="results" class="container">
+<div id="results" class="container pull-right text-center">
     @Html.Partial("_ProgramResult", Model)
 </div>
