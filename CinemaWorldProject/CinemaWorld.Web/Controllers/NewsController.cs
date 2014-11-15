@@ -9,7 +9,7 @@
     using CinemaWorld.Web.ViewModels.News;
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
-    
+
 
     [HandleError]
     public class NewsController : BaseController
@@ -22,7 +22,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public JsonResult GetNews([DataSourceRequest] DataSourceRequest request)
