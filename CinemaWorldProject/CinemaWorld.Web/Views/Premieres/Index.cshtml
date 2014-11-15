@@ -29,7 +29,6 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "movie-description-" + i.ToString(),
-                        OnSuccess = "hideSeeMoreBtn",
                     }, new { @class = "btn", id = string.Format("seeMoreBtn-{0}", movie.Id) })
                 </div>
             }
@@ -49,7 +48,10 @@
     <script>
         $(document).ready(function () {
             $("a").click(function (event) {
-            $(event.target).hide();
+              
+                if (event.target.id.substr(0, 10) === 'seeMoreBtn') {
+                    $(event.target).hide();
+                }
             });
         });
     </script>
