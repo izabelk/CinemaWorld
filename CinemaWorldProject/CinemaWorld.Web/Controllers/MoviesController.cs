@@ -76,6 +76,7 @@
             return PartialView("_CommentPartial", viewModel);
         }
 
+        [Authorize]
         public ActionResult Vote(int id)
         {
             var userId = User.Identity.GetUserId();
