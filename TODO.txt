@@ -1,8 +1,0 @@
--Add more editor and display templates
--Cache some part of home page or news !!!
--Add more partial views
--Fix client side validation of partial views (comments for example)
--Implement choosing seats (if there is time)
--Write some unit tests(if there is time)
-
-
