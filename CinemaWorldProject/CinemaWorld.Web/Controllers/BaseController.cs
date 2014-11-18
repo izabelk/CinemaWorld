@@ -4,6 +4,7 @@
 
     using CinemaWorld.Data.UnitOfWork;
 
+    [HandleError]
     public class BaseController : Controller
     {
         protected ICinemaWorldData Data;

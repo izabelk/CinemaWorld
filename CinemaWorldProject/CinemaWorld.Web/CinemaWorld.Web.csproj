@@ -198,6 +198,7 @@
     <Compile Include="Areas\ViewModels\Projections\ProjectionViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -384,6 +385,7 @@
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Genres\" />
     <Folder Include="Areas\Administration\Views\Movies\DisplayTemplates\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
